@@ -225,20 +225,17 @@
         <blockquote class="fragment">"Software that manages software"</blockquote>
       </section>
       <section>
-        <h2>Operating System</h2>
+        <h2>"Scheduler"</h2>
         <ul>
           <li class="fragment">Coordinates with CPU</li>
           <li class="fragment">Manages "context switching"</li>
           <li class="fragment">Swap out Program Counter</li>
-          <li class="fragment">Handles Virtual Memory</li>
         </ul>
         <aside class="notes">
           <ul>
             <li>Tick: Timer interrupt</li>
             <li>CPU: Hey OS, switch places?</li>
             <li>OS: Here's new PC</li>
-            <li>"Scheduler"</li>
-            <li>Virt Mem: Every program starts at addr 0</li>
           </ul>
         </aside>
       </section>
@@ -277,7 +274,31 @@
         </aside>
       </section>
       <section>
+        <h2>Virtual memory</h2>
+        <img src="assets/ram-card.jpg" alt="A computer also contains memory" />
+        <p><small><a href="https://www.flickr.com/photos/sebleedelisle/3519503529">https://www.flickr.com/photos/sebleedelisle/3519503529</a></small></p>
+        <aside class="notes">
+          <ul>
+            <li>Code and data spread out at random</li>
+            <li>OS and CPU lie to process</li>
+            <li>Process thinks has contiguous memory from 0</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
         <img src="assets/lies-continue.jpg" align="This is an over-simplification" data-credit="https://www.pinterest.com/pin/485051822345611119/" />
+        <aside class="notes">
+          <ul>
+            <li>Skipping some details</li>
+            <li>Ignoring CPU caching, etc.</li>
+            <li>Skipping all other things OS does</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Namespaces</h2>
       </section>
     </section>
 
