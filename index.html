@@ -93,6 +93,18 @@
       margin-top: 1em;
     }
 
+    .reveal ul.os-list {
+      display: flex;
+      list-style: none;
+      justify-content: space-around;
+      text-align: center;
+      align-items: center;
+    }
+
+    .reveal ul.os-list > li > img {
+      width: 150px;
+    }
+
   </style>
 
 </head>
@@ -190,15 +202,91 @@
     </section>
     <section>
       <section>
-        <h2>The first lie</h2>
+        <h1>The first lie</h1>
         <h2>"Processes"</h2>
       </section>
+      <section data-background="assets/pentium-cpu.jpg" data-credit="https://www.flickr.com/photos/3336/27756879319">
+        <aside class="notes">
+          <ul>
+            <li>CPU, essentially single-thread</li>
+            <li>Instructions one by one</li>
+            <li>Program Counter tracks current instruction</li>
+            <li>I/O is slow, do other stuff while waiting?</li>
+          </ul>
+        </aside>
+      </section>
       <section>
-
+        <h2>Operating System</h2>
+        <ul class="os-list">
+          <li><img src="assets/os-logo/tux.svg" data-credit="https://commons.wikimedia.org/wiki/File:Tux.svg" alt="Linux" /></li>
+          <li><img src="assets/os-logo/windows-pre-xp.jpg" data-credit="https://commons.wikimedia.org/wiki/File:Microsoft_Windows_logo_(Pre-XP).jpg" alt="Windows" /></li>
+          <li><img src="assets/os-logo/os-x-logo.svg" data-credit="https://commons.wikimedia.org/wiki/File:OS_X-Logo.svg" alt="OS X" /></li>
+        </ul>
+        <blockquote class="fragment">"Software that manages software"</blockquote>
+      </section>
+      <section>
+        <h2>Operating System</h2>
+        <ul>
+          <li class="fragment">Coordinates with CPU</li>
+          <li class="fragment">Manages "context switching"</li>
+          <li class="fragment">Swap out Program Counter</li>
+          <li class="fragment">Handles Virtual Memory</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Tick: Timer interrupt</li>
+            <li>CPU: Hey OS, switch places?</li>
+            <li>OS: Here's new PC</li>
+            <li>"Scheduler"</li>
+            <li>Virt Mem: Every program starts at addr 0</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Operating system</h2>
+        <p class="bigtext">Multiple cores?</p>
+        <p class="fragment bigtext">Multiple threads?</p>
+        <p class="fragment bigtext">Multiple Program Counters!</p>
+        <aside class="notes">
+          <ul>
+            <li>How to keep track of PCs and memory?</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>"Process"</h2>
+        <img src="assets/diagrams/processes.svg" alt="Processes are an ID, code stream, PC, and memory block" />
+        <aside class="notes">
+          <ul>
+            <li>Process ID, Code stream, Program Counter, Memory block</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Processes</h2>
+        <ul>
+          <li class="fragment">Know about each other</li>
+          <li class="fragment">Communicate with each other</li>
+          <li class="fragment">Get the same system info from OS</li>
+          <li class="fragment">Spawn new processes</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Create new by forking or "start that file on disk"</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <img src="assets/lies-continue.jpg" align="This is an over-simplification" data-credit="https://www.pinterest.com/pin/485051822345611119/" />
       </section>
     </section>
 
     <div style="display:none">
+
+      <img src="assets/lies-everywhere.jpg" alt="Lies" data-credit="https://makeameme.org/meme/lies-lies-mg8odl" />
+
+      <img src="assets/lies-all-lies.jpg" alt="Lies" data-credit="http://www.quickmeme.com/meme/3q8qw0" />
+
 
       * Clouds, big thing
       * Clouds taking over
