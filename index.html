@@ -105,6 +105,10 @@
       width: 150px;
     }
 
+    img.meme {
+      width: 600px;
+    }
+
   </style>
 
 </head>
@@ -266,6 +270,7 @@
           <li class="fragment">Communicate with each other</li>
           <li class="fragment">Get the same system info from OS</li>
           <li class="fragment">Spawn new processes</li>
+          <li class="fragment">Exist in a hierarchy</li>
         </ul>
         <aside class="notes">
           <ul>
@@ -286,7 +291,7 @@
         </aside>
       </section>
       <section>
-        <img src="assets/lies-continue.jpg" align="This is an over-simplification" data-credit="https://www.pinterest.com/pin/485051822345611119/" />
+        <p><span style="color: red; font-size: 3em;">*</span><img src="assets/lies-continue.jpg" class="meme" style="vertical-align: top;" align="This is an over-simplification" data-credit="https://www.pinterest.com/pin/485051822345611119/" /></p>
         <aside class="notes">
           <ul>
             <li>Skipping some details</li>
@@ -298,7 +303,29 @@
     </section>
     <section>
       <section>
+        <img src="assets/lies-different.jpg" class="meme" alt="What if I told you we could tell different lies to different processes." />
+      </section>
+      <section>
         <h2>Namespaces</h2>
+        <div class="layout-columns">
+          <div>
+            <img src="assets/os-logo/tux.svg" data-credit="https://commons.wikimedia.org/wiki/File:Tux.svg" alt="Linux specific stuff follows" />
+          </div>
+          <div>
+            <!-- NOTE: Make this layout nicer. -->
+            <ul style="display: flex; flex-direction: column; justify-content: space-around;">
+              <li class="fragment">Linux can tell different lies</li>
+              <li class="fragment">Bundle processes together</li>
+              <li class="fragment">Different lie for each bundle</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="notes">
+          <ul>
+            <li>Linux kernel specific (not GNU)</li>
+            <li>6 namespace types added piecemeal</li>
+          </ul>
+        </aside>
       </section>
     </section>
 
