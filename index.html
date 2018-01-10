@@ -193,8 +193,7 @@
         </aside>
       </section>
       <section>
-        <img src="assets/lies-pinocchio.jpg" alt="Containers are lies!">
-        <p><small>Credit: <a href="https://www.essaytigers.com/blog/20-big-fat-lies-college-professors-tell-us">https://www.essaytigers.com/</a></small></p>
+        <img src="assets/lies-all-lies.jpg" alt="Containers are all lies" class="meme" data-credit="http://www.quickmeme.com/meme/3q8qw0" />
         <aside class="notes">
           <ul>
             <li>Containers are lies.</li>
@@ -259,7 +258,7 @@
         <img src="assets/diagrams/processes.svg" alt="Processes are an ID, code stream, PC, and memory block" />
         <aside class="notes">
           <ul>
-            <li>Process ID, Code stream, Program Counter, Memory block</li>
+            <li>Code stream, Program Counter, Process ID, Memory block</li>
           </ul>
         </aside>
       </section>
@@ -380,12 +379,129 @@
         </aside>
       </section>
     </section>
+    <section>
+      <section>
+        <h2>Network namespace</h2>
+        <div class="layout-columns">
+          <div>
+            <h3 class="fragment">Physical devices</h3>
+            <ul>
+              <li class="fragment">Physical hardware</li>
+              <li class="fragment">Cannot be namespaced</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="fragment">Virtual devices</h3>
+            <ul>
+              <li class="fragment">More lies!</li>
+              <li class="fragment">Only one namespace</li>
+              <li class="fragment">Can create in pairs</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="notes">
+          <ul>
+            <li>Paired virtual devices can talk across NS boundary</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Network namespace</h2>
+        <p><img src="assets/diagrams/network-namespace.svg" alt="The network namespace lets multiple virtual devices appear as the same device to different processes." /></p>
+        <aside class="notes">
+          <ol>
+            <li>veth0/veth1 created as a pair</li>
+            <li>Move just veth1 to namespace</li>
+            <li>OS gives IP addresses to each veth</li>
+            <li>Setup firewall rules in OS like anything else</li>
+            <li>Both processes are "listening on port 80"</li>
+          </ol>
+        </aside>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>User namespace</h2>
+        <p class="fragment bigtext">Processes have user and group</p>
+        <p class="fragment bigtext">Affects access control</p>
+        <aside class="notes">
+          <ul>
+            <li>Limit process communication</li>
+            <li>Limit signals (like terminate)</li>
+            <li>"root" user has superpowers</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>User namespace</h2>
+        <ul>
+          <li class="fragment">Namespace-local user</li>
+          <li class="fragment">Map local user to global user</li>
+          <li class="fragment">... even root</li>
+        </ul>
+      </section>
+      <section>
+        <h2>User namespace</h2>
+        <p><img src="assets/diagrams/user-namespace.svg" alt="The user namespace lets processes be a different user within a given scope." /></p>
+        <p class="fragment bigtext">A process can be local-root!</p>
+        <aside class="notes">
+          <ul>
+            <li>Lots of potential for weirdness</li>
+            <li>Main benefit: local root</li>
+            <li>Local root has root power selectively</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Control Groups</h2>
+        <blockquote>The CGroup is not a lie!</blockquote>
+        <p class="fragment bigtext">Scheduler tweaking</p>
+        <aside class="notes">
+          <ul>
+            <li>Scheduler tries to be fair</li>
+            <li>Greedy program can get more than fair share</li>
+            <li>Fork a lot, just be slow, etc.</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Control Group hierarchy</h3>
+        <ul>
+          <li class="fragment">Separate from process hierarchy</li>
+          <li class="fragment">Nodes with "controllers"</li>
+          <li class="fragment">Tracking, auditing, capping</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>~dozen controllers, we care about CPU/mem cap</li>
+            <li>Cap inherits down the tree</li>
+            <li>Group A gets 1 GB mem, subgroup B gets 25% of that</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Control Groups</h2>
+        <p><img src="assets/diagrams/control-groups.svg" alt="Control groups portion out fixed resources." /></p>
+        <aside class="notes">
+          <ul>
+            <li>SQL process gets one core only</li>
+            <li>Even if SQL runs wild, won't affect other cores</li>
+            <li>Give each nginx process % of other core</li>
+            <li>Can also allow % of all cores as group</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
+
 
     <div style="display:none">
 
       <img src="assets/lies-everywhere.jpg" alt="Lies" data-credit="https://makeameme.org/meme/lies-lies-mg8odl" />
 
-      <img src="assets/lies-all-lies.jpg" alt="Lies" data-credit="http://www.quickmeme.com/meme/3q8qw0" />
+      <img src="assets/lies-pinocchio.jpg" alt="Containers are lies!">
+      <p><small>Credit: <a href="https://www.essaytigers.com/blog/20-big-fat-lies-college-professors-tell-us">https://www.essaytigers.com/</a></small></p>
 
 
       * Clouds, big thing
