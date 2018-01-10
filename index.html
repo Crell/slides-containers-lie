@@ -331,8 +331,53 @@
     <section>
       <section>
         <h2>UTS Namespace</h2>
-        <p><img src="assets/diagrams/uts-namespace.svg" alt="The UTS namespace gives different sets of processes different hostnames" </p>
+        <p><img src="assets/diagrams/uts-namespace.svg" alt="The UTS namespace gives different sets of processes different hostnames" /></p>
         <p class="fragment"><code>sethostname(), setdomainname(), and uname()</code></p>
+        <aside class="notes">
+          <ul>
+            <li>UTS = "Unix Time-sharing System"</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Process Namespace</h2>
+        <p><img src="assets/diagrams/pid-namespace.svg" alt="The PID namespace segments processes so they have a different keyspace, and 2 PIDs each." /></p>
+        <p class="fragment">What about <code>/proc</code>?</p>
+        <aside class="notes">
+          <ul>
+            <li>Process has ID inside and outside NS</li>
+            <li>Inside NS, process only sees own NS</li>
+            <li>Outside NS, see all processes</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Mount Namespace</h2>
+        <ul>
+          <li class="fragment">super-chroot</li>
+          <li class="fragment">New "root node"</li>
+          <li class="fragment">File systems can be an image on disk</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>chroot() changes root point within single tree</li>
+            <li>namespaces give you a whole new tree</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Mount Namespace</h2>
+        <p><img src="assets/diagrams/mount-namespace.svg" alt="The mount namespace gives different processes different views on the file system." /></p>
+        <aside class="notes">
+          <ul>
+            <li>Secret_plans is a .iso or something</li>
+            <li>Procs starts others by calling "on disk": Changed what can even start</li>
+          </ul>
+        </aside>
       </section>
     </section>
 
