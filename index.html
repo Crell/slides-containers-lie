@@ -50,7 +50,8 @@
     .reveal h2 + p.bigtext,
     .reveal p + p,
     .reveal h3 + p,
-    .reveal h3 + h3 {
+    .reveal h3 + h3,
+    .reveal ul + ul {
       margin-top: 1em;
     }
 
@@ -87,6 +88,10 @@
 
     .layout-centerline {
       align-items: center;
+    }
+
+    .layout-bottom-align {
+      align-items: end;
     }
 
     .reveal .topspace {
@@ -220,7 +225,7 @@
       </section>
       <section>
         <h2>Operating System</h2>
-        <ul class="os-list">
+        <ul class="layout-columns layout-centerline os-list">
           <li><img src="assets/os-logo/tux.svg" data-credit="https://commons.wikimedia.org/wiki/File:Tux.svg" alt="Linux" /></li>
           <li><img src="assets/os-logo/windows-pre-xp.jpg" data-credit="https://commons.wikimedia.org/wiki/File:Microsoft_Windows_logo_(Pre-XP).jpg" alt="Windows" /></li>
           <li><img src="assets/os-logo/os-x-logo.svg" data-credit="https://commons.wikimedia.org/wiki/File:OS_X-Logo.svg" alt="OS X" /></li>
@@ -511,12 +516,122 @@
       </section>
       <section>
         <p><img src="assets/diagrams/all-namespaces.svg" alt="All namespaces together!" /></p>
+      </section>
+      <section>
+        <h3>Set of processes that...</h3>
+        <ul>
+          <li class="fragment">Know of only each other</li>
+          <li class="fragment">Have a root user</li>
+          <li class="fragment">Have their own file tree</li>
+          <li class="fragment">Have their own network config</li>
+          <li class="fragment">Have their own hostname</li>
+          <li class="fragment">Have no way out of that box</li>
+          <li class="fragment">Have a restricted finite set of resources</li>
+        </ul>
+      </section>
+      <section>
+        <p><img src="assets/philosoraptor-isolated-processes.jpg" class="meme" alt="If processes are that isolated, is that any different than having their own computer?" /></p>
         <p class="fragment bigtext">Let's call it a "Container"</p>
+        <aside class="notes">
+          <ul>
+            <li>Can tell in a cgroup, but can't change anything</li>
+            <li>Still share a kernel! But that's (maybe) it</li>
+          </ul>
+        </aside>
       </section>
       <section>
         <video preload="auto" class="stretch" data-autoplay>
           <source src="assets/obama-mic-drop.mp4" data-credit="" />
         </video>
+        <aside class="notes">
+          <ul>
+            <li>Namespaces too fine-grained for daily practice</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Coarser APIs</h2>
+        <ul class="fragment layout-columns layout-bottom-align os-list">
+          <li>
+            <a href="https://linuxcontainers.org/"><figure>
+              <img src="assets/lxc-logo.png" alt="" />
+              <figcaption>LXC (Linux Containers)</figcaption>
+            </figure></a>
+          </li>
+          <li>
+            <a href="https://docker.org/"><figure>
+              <img src="assets/docker-logo-vertical.png" alt="" />
+              <figcaption>Docker</figcaption>
+            </figure></a>
+          </li>
+          <li>
+            <a href="https://github.com/rkt/rkt"><figure>
+              <img src="assets/rkt-logo.png" alt="" />
+              <figcaption>Rkt (Rocket)</figcaption>
+            </figure></a>
+          </li>
+        </ul>
+        <ul class="fragment">
+          <li><a href="https://github.com/tailhook/vagga">Vagga</a> (Rust)</li>
+          <li><a href="https://github.com/p8952/bocker">Bocker</a> (Bash)</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Any language with full system commands</li>
+            <li>Not PHP</li>
+            <li>Docker layer on LXC, then forked</li>
+          </ul>
+        </aside>
+      </section>
+      <section data-background="assets/orchestration-music.jpg" data-credit="https://www.flickr.com/photos/blogocram/9682266245/">
+        <h2 style="background: whitesmoke; border-radius: 5px; width: 50%;">Orchestration</h2>
+        <aside class="notes">
+          <ul>
+            <li>Keeping track of many containers and their settings</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Read-only containers</h2>
+        <ul>
+          <li class="fragment">Load once, run multiple</li>
+          <li class="fragment">No write collisions</li>
+          <li class="fragment">Trivial overhead</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Run anywhere?</h2>
+        <p class="fragment"><img src="assets/lies-everywhere.jpg" class="meme" alt="Containers can't just run anywhere; they're specific to a container library" data-credit="https://makeameme.org/meme/lies-lies-mg8odl" /></p>
+        <aside class="notes">
+          <ul>
+            <li>Library specific</li>
+            <li>All that metadata</li>
+            <li>"File" format</li>
+          </ul>
+        </aside>
+      </section>
+      <section data-background="assets/container-guest-house.jpg" data-credit="https://www.architecturendesign.net/22-most-beautiful-houses-made-from-shipping-containers/">
+        <aside class="notes">
+          <ul>
+            <li>Hundreds of implicit dependencies</li>
+            <li>Process starts proc by calling file</li>
+            <li>Ship exact copies of all files!</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <p class="bigtext">Static compiler for your entire system</p>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>A tale of two containers</h2>
+        <ul class="fragment layout-columns">
+          <li>Platform.sh</li>
+          <li>Docker</li>
+        </ul>
       </section>
     </section>
 
@@ -525,27 +640,9 @@
 
     <div style="display:none">
 
-      <img src="assets/lies-everywhere.jpg" alt="Lies" data-credit="https://makeameme.org/meme/lies-lies-mg8odl" />
 
       <img src="assets/lies-pinocchio.jpg" alt="Containers are lies!">
       <p><small>Credit: <a href="https://www.essaytigers.com/blog/20-big-fat-lies-college-professors-tell-us">https://www.essaytigers.com/</a></small></p>
-
-
-      * Clouds, big thing
-      * Clouds taking over
-      * Clouds built on containers (tupperware pic)
-      * Shipping containers pic (false)
-      * Whale pic (false)
-      * Docker pic (very false)
-      * Lies! (pic)
-      * Peel back the lies; just what is a container?
-
-      * Computer
-      * Process (fig 1)
-      * Virtual memory (still fig 1?)
-
-
-
 
     </div>
 
