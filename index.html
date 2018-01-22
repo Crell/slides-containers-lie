@@ -98,7 +98,7 @@
       margin-top: 1em;
     }
 
-    .reveal ul.os-list {
+    .reveal ul.logo-list {
       display: flex;
       list-style: none;
       justify-content: space-around;
@@ -106,12 +106,16 @@
       align-items: center;
     }
 
-    .reveal ul.os-list > li > img {
+    .reveal ul.logo-list > li > img {
       width: 150px;
     }
 
     img.meme {
       width: 600px;
+    }
+
+    p.fullscreen-credit {
+      margin-top: 90%;
     }
 
   </style>
@@ -225,7 +229,7 @@
       </section>
       <section>
         <h2>Operating System</h2>
-        <ul class="layout-columns layout-centerline os-list">
+        <ul class="layout-columns layout-centerline logo-list">
           <li><img src="assets/os-logo/tux.svg" data-credit="https://commons.wikimedia.org/wiki/File:Tux.svg" alt="Linux" /></li>
           <li><img src="assets/os-logo/windows-pre-xp.jpg" data-credit="https://commons.wikimedia.org/wiki/File:Microsoft_Windows_logo_(Pre-XP).jpg" alt="Windows" /></li>
           <li><img src="assets/os-logo/os-x-logo.svg" data-credit="https://commons.wikimedia.org/wiki/File:OS_X-Logo.svg" alt="OS X" /></li>
@@ -285,7 +289,7 @@
       <section>
         <h2>Virtual memory</h2>
         <img src="assets/ram-card.jpg" alt="A computer also contains memory" />
-        <p><small><a href="https://www.flickr.com/photos/sebleedelisle/3519503529">https://www.flickr.com/photos/sebleedelisle/3519503529</a></small></p>
+        <p><small>(Credit: <a href="https://www.flickr.com/photos/sebleedelisle/3519503529">https://www.flickr.com/photos/sebleedelisle/3519503529</a>)</small></p>
         <aside class="notes">
           <ul>
             <li>Code and data spread out at random</li>
@@ -553,7 +557,7 @@
     <section>
       <section>
         <h2>Coarser APIs</h2>
-        <ul class="fragment layout-columns layout-bottom-align os-list">
+        <ul class="fragment layout-columns layout-bottom-align logo-list">
           <li>
             <a href="https://linuxcontainers.org/"><figure>
               <img src="assets/lxc-logo.png" alt="" />
@@ -628,13 +632,133 @@
     <section>
       <section>
         <h2>A tale of two containers</h2>
-        <ul class="fragment layout-columns">
-          <li>Platform.sh</li>
-          <li>Docker</li>
+        <ul class="fragment layout-columns layout-centerline logo-list">
+          <li><img src="platform-reveal/platform-theme/assets/imgs/platform-logo-2c.svg" style="width: 300px" alt="Platform.sh" /></li>
+          <li><img src="assets/docker-logo-vertical.png" style="width: 300px" alt="Docker" /></li>
         </ul>
       </section>
     </section>
-
+    <section>
+      <section>
+        <p><img src="platform-reveal/platform-theme/assets/imgs/platform-logo-2c.svg" style="width: 300px" alt="Platform.sh" /></p>
+        <ul>
+          <li class="fragment">Built on LXC</li>
+          <li class="fragment">Nested Squashfs</li>
+          <li class="fragment">Integrated orchestration</li>
+        </ul>
+      </section>
+      <section>
+        <p><img src="platform-reveal/platform-theme/assets/imgs/platform-logo-2c.svg" style="width: 300px" alt="Platform.sh" /></p>
+        <div class="layout-centerline layout-columns">
+          <div><img src="assets/git-logo.svg" alt="Git" /></div>
+          <div class="fragment">+</div>
+          <div><code class="fragment">#!/bin/bash</code></div>
+          <div class="fragment">=</div>
+          <div class="fragment">Squashfs</div>
+        </div>
+        <aside class="notes">
+          <ul>
+            <li>Controlled via YAML files in Git</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <p><img src="platform-reveal/platform-theme/assets/imgs/platform-logo-2c.svg" style="width: 300px" alt="Platform.sh" /></p>
+        <div class="layout-columns">
+          <div>
+            <img src="assets/diagrams/platformsh-filesystem.svg" alt="A Platform.sh production file system is built from pieces" />
+          </div>
+          <div>
+            <!-- NOTE: Make this layout nicer. -->
+            <ul style="display: flex; flex-direction: column; justify-content: space-around;">
+              <li class="fragment">Base OS squashfs</li>
+              <li class="fragment">Application squashfs</li>
+              <li class="fragment">RAMdisk for config</li>
+              <li class="fragment">Network mounted user files</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="notes">
+          <ul>
+            <li>Base OS image depends on config</li>
+            <li>Shared by hundreds of containers</li>
+            <li>Conf files built from Psh config</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <pre class="font--24"><code class="bash" data-trim>
+$ ps axf
+ PID TTY      STAT   TIME COMMAND
+   1 ?        Ss     0:06 init [2]
+  72 ?        Ss     0:06 runsvdir -P /etc/service log: .................................................................
+  78 ?        Ss     0:00  \_ runsv ssh
+ 105 ?        S      0:00  |   \_ /usr/sbin/sshd -D
+2516 ?        Ss     0:00  |       \_ sshd: web [priv]
+2518 ?        S      0:00  |           \_ sshd: web@pts/0
+2519 pts/0    Ss     0:00  |               \_ -bash
+2605 pts/0    R+     0:00  |                   \_ ps axf
+  79 ?        Ss     0:00  \_ runsv nginx
+  99 ?        S      0:00  |   \_ nginx: master process /usr/sbin/nginx -g daemon off; error_log /var/log/error.log; -c /
+ 104 ?        S      0:00  |       \_ nginx: worker process
+  80 ?        Ss     0:00  \_ runsv newrelic
+  81 ?        Ss     0:00  \_ runsv app
+  89 ?        Ss     0:22      \_ php-fpm: master process (/etc/php/7.2-zts/fpm/php-fpm.conf)
+        </code></pre>
+        <aside class="notes">
+          <ul>
+            <li>All the processes in the app container</li>
+            <li>runsv is part of runit</li>
+            <li>Only real processes are ssh, nginx, php-fpm</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Cluster is the unit of deployment</h3>
+        <p><img src="assets/diagrams/platformsh-cluster.svg" alt="The same setup applies across all containers in a cluster" /></p>
+        <aside class="notes">
+          <ul>
+            <li>Services have no app image, but do have FS or ramdisk</li>
+          </ul>
+        </aside>
+      </section>
+    </section>
+    <section>
+      <section>
+        <p><img src="assets/docker-logo-horizontal.png" alt="Docker" /></p>
+        <ul>
+          <li class="fragment">Layered filesystem</li>
+          <li class="fragment">No init process</li>
+          <li class="fragment">Optimized for 1 process</li>
+        </ul>
+      </section>
+      <section>
+        <p><img src="assets/diagrams/docker-filesystem.svg" alt="Docker's file system is layered" /></p>
+        <aside class="notes">
+          <ul>
+            <li>Layered like transparencies</li>
+            <li>Good for sharing lower-layers with many containers</li>
+            <li>Bad if you have lots of layers, gets slower</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <p class="bigtext">Different uses, different trade-offs</p>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h3>Enjoy your lies</h3>
+        <ul>
+          <li class="fragment">All software is built on lies</li>
+          <li class="fragment">Embrace them!</li>
+          <li class="fragment">Cloud computing is a multi-layered lie</li>
+        </ul>
+      </section>
+      <section data-background="assets/cake-is-a-lie.jpg" data-credit="https://www.flickr.com/photos/hrbrmstr/6015402227/">
+        <p class="fullscreen-credit"><small>(Credit: <a href="https://www.flickr.com/photos/hrbrmstr/6015402227/">https://www.flickr.com/photos/hrbrmstr/6015402227/</a>)</small></p>
+      </section>
+    </section>
 
 
 
