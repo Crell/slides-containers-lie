@@ -116,6 +116,7 @@
 
     p.fullscreen-credit {
       margin-top: 90%;
+      font-size: small;
     }
 
   </style>
@@ -177,7 +178,7 @@
         </aside>
       </section>
       <section data-background="assets/container-ship-noaa.jpg" data-credit="https://www.flickr.com/photos/usoceangov/5369581593">
-        <aside class="notes">
+        <p class="fullscreen-credit">(Credit: <a href="https://www.flickr.com/photos/usoceangov/5369581593">https://www.flickr.com/photos/usoceangov/5369581593</a>)</p>        <aside class="notes">
           <ul>
             <li>It's like shipping containers, right?</li>
             <li>This is not a container.</li>
@@ -185,6 +186,7 @@
         </aside>
       </section>
       <section data-background="assets/whale-breach.jpg" data-credit="http://www.bbc.com/earth/story/20161124-humpback-whales-can-talk-with-their-bodies">
+        <p class="fullscreen-credit">(Credit: <a href="http://www.bbc.com/earth/story/20161124-humpback-whales-can-talk-with-their-bodies">http://www.bbc.com/</a>)</p>
         <aside class="notes">
           <ul>
             <li>I hear it has to do with whales.</li>
@@ -218,6 +220,7 @@
         <h2>"Processes"</h2>
       </section>
       <section data-background="assets/pentium-cpu.jpg" data-credit="https://www.flickr.com/photos/3336/27756879319">
+        <p class="fullscreen-credit">(Credit: <a href="https://www.flickr.com/photos/3336/27756879319">https://www.flickr.com/photos/3336/27756879319</a>)</p>
         <aside class="notes">
           <ul>
             <li>CPU, essentially single-thread</li>
@@ -322,9 +325,9 @@
           <div>
             <!-- NOTE: Make this layout nicer. -->
             <ul style="display: flex; flex-direction: column; justify-content: space-around;">
-              <li class="fragment">Linux can tell different lies</li>
-              <li class="fragment">Bundle processes together</li>
-              <li class="fragment">Different lie for each bundle</li>
+              <li style="margin-top: 1em" class="fragment">Linux can tell different lies</li>
+              <li style="margin-top: 1em" class="fragment">Bundle processes together</li>
+              <li style="margin-top: 1em" class="fragment">Different lie for each bundle</li>
             </ul>
           </div>
         </div>
@@ -591,6 +594,7 @@
       </section>
       <section data-background="assets/orchestration-music.jpg" data-credit="https://www.flickr.com/photos/blogocram/9682266245/">
         <h2 style="background: whitesmoke; border-radius: 5px; width: 50%;">Orchestration</h2>
+        <!--<p class="fullscreen-credit">(Credit: <a href="https://www.flickr.com/photos/blogocram/9682266245/">https://www.flickr.com/photos/blogocram/9682266245/</a>)</p>-->
         <aside class="notes">
           <ul>
             <li>Keeping track of many containers and their settings</li>
@@ -617,6 +621,7 @@
         </aside>
       </section>
       <section data-background="assets/container-guest-house.jpg" data-credit="https://www.architecturendesign.net/22-most-beautiful-houses-made-from-shipping-containers/">
+        <p class="fullscreen-credit">(Credit: <a href="https://www.architecturendesign.net/22-most-beautiful-houses-made-from-shipping-containers/">https://www.architecturendesign.net/22-most-beautiful-houses-made-from-shipping-containers/</a>)</p>
         <aside class="notes">
           <ul>
             <li>Hundreds of implicit dependencies</li>
@@ -671,10 +676,10 @@
           <div>
             <!-- NOTE: Make this layout nicer. -->
             <ul style="display: flex; flex-direction: column; justify-content: space-around;">
-              <li class="fragment">Base OS squashfs</li>
-              <li class="fragment">Application squashfs</li>
-              <li class="fragment">RAMdisk for config</li>
-              <li class="fragment">Network mounted user files</li>
+              <li style="margin-top: 1em" class="fragment">Base OS squashfs</li>
+              <li style="margin-top: 1em" class="fragment">Application squashfs</li>
+              <li style="margin-top: 1em" class="fragment">RAMdisk for config</li>
+              <li style="margin-top: 1em" class="fragment">Network mounted user files</li>
             </ul>
           </div>
         </div>
@@ -687,6 +692,7 @@
         </aside>
       </section>
       <section>
+        <h2>Few processes</h2>
         <pre class="font--24"><code class="bash" data-trim>
 $ ps axf
  PID TTY      STAT   TIME COMMAND
@@ -756,14 +762,13 @@ $ ps axf
         </ul>
       </section>
       <section data-background="assets/cake-is-a-lie.jpg" data-credit="https://www.flickr.com/photos/hrbrmstr/6015402227/">
-        <p class="fullscreen-credit"><small>(Credit: <a href="https://www.flickr.com/photos/hrbrmstr/6015402227/">https://www.flickr.com/photos/hrbrmstr/6015402227/</a>)</small></p>
+        <p class="fullscreen-credit">(Credit: <a href="https://www.flickr.com/photos/hrbrmstr/6015402227/">https://www.flickr.com/photos/hrbrmstr/6015402227/</a>)</p>
       </section>
     </section>
 
 
 
     <div style="display:none">
-
 
       <img src="assets/lies-pinocchio.jpg" alt="Containers are lies!">
       <p><small>Credit: <a href="https://www.essaytigers.com/blog/20-big-fat-lies-college-professors-tell-us">https://www.essaytigers.com/</a></small></p>
@@ -776,6 +781,7 @@ $ ps axf
       <p>Director of Developer Experience <a href="http://www.platform.sh/">Platform.sh</a></p>
       <p>Continuous Deployment Cloud Hosting</p>
       <p>Stalk us at <a href="http://twitter.com/Platformsh">@PlatformSH</a></p>
+      <p style="margin-top: 2em;"><small>Diagrams by Allison Simmons</small></p>
     </section>
 
   </div>
