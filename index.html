@@ -114,6 +114,10 @@
       width: 600px;
     }
 
+    img.diagram {
+      width: 80%;
+    }
+
     p.fullscreen-credit {
       margin-top: 90%;
       font-size: small;
@@ -267,7 +271,7 @@
       </section>
       <section>
         <h2>"Process"</h2>
-        <img src="assets/diagrams/processes.svg" alt="Processes are an ID, code stream, PC, and memory block" />
+        <img src="assets/diagrams/processes.svg" class="diagram" alt="Processes are an ID, code stream, PC, and memory block" />
         <aside class="notes">
           <ul>
             <li>Code stream, Program Counter, Process ID, Memory block</li>
@@ -342,7 +346,7 @@
     <section>
       <section>
         <h2>UTS Namespace</h2>
-        <p><img src="assets/diagrams/uts-namespace.svg" alt="The UTS namespace gives different sets of processes different hostnames" /></p>
+        <p><img src="assets/diagrams/uts-namespace.svg" class="diagram" alt="The UTS namespace gives different sets of processes different hostnames" /></p>
         <p class="fragment"><code>sethostname(), setdomainname(), and uname()</code></p>
         <aside class="notes">
           <ul>
@@ -354,7 +358,7 @@
     <section>
       <section>
         <h2>Process Namespace</h2>
-        <p><img src="assets/diagrams/pid-namespace.svg" alt="The PID namespace segments processes so they have a different keyspace, and 2 PIDs each." /></p>
+        <p><img src="assets/diagrams/pid-namespace.svg" class="diagram" alt="The PID namespace segments processes so they have a different keyspace, and 2 PIDs each." /></p>
         <p class="fragment">What about <code>/proc</code>?</p>
         <aside class="notes">
           <ul>
@@ -382,7 +386,7 @@
       </section>
       <section>
         <h2>Mount Namespace</h2>
-        <p><img src="assets/diagrams/mount-namespace.svg" alt="The mount namespace gives different processes different views on the file system." /></p>
+        <p><img src="assets/diagrams/mount-namespace.svg" class="diagram" alt="The mount namespace gives different processes different views on the file system." /></p>
         <aside class="notes">
           <ul>
             <li>Secret_plans is a .iso or something</li>
@@ -419,7 +423,7 @@
       </section>
       <section>
         <h2>Network namespace</h2>
-        <p><img src="assets/diagrams/network-namespace.svg" alt="The network namespace lets multiple virtual devices appear as the same device to different processes." /></p>
+        <p><img src="assets/diagrams/network-namespace.svg" class="diagram" alt="The network namespace lets multiple virtual devices appear as the same device to different processes." /></p>
         <aside class="notes">
           <ol>
             <li>veth0/veth1 created as a pair</li>
@@ -454,7 +458,7 @@
       </section>
       <section>
         <h2>User namespace</h2>
-        <p><img src="assets/diagrams/user-namespace.svg" alt="The user namespace lets processes be a different user within a given scope." /></p>
+        <p><img src="assets/diagrams/user-namespace.svg" class="diagram" alt="The user namespace lets processes be a different user within a given scope." /></p>
         <p class="fragment bigtext">A process can be local-root!</p>
         <aside class="notes">
           <ul>
@@ -495,7 +499,7 @@
       </section>
       <section>
         <h2>Control Groups</h2>
-        <p><img src="assets/diagrams/control-groups.svg" alt="Control groups portion out fixed resources." /></p>
+        <p><img src="assets/diagrams/control-groups.svg" style="background: whitesmoke" class="diagram" alt="Control groups portion out fixed resources." /></p>
         <aside class="notes">
           <ul>
             <li>SQL process gets one core only</li>
@@ -522,7 +526,7 @@
         <p><img src="assets/use-all-the-namespaces.jpg" class="meme" alt="Use all the namespaces!" /></p>
       </section>
       <section>
-        <p><img src="assets/diagrams/all-namespaces.svg" alt="All namespaces together!" /></p>
+        <p><img src="assets/diagrams/all-namespaces.svg" class="diagram" alt="All namespaces together!" /></p>
       </section>
       <section>
         <h3>Set of processes that...</h3>
@@ -721,7 +725,7 @@ $ ps axf
       </section>
       <section>
         <h3>Cluster is the unit of deployment</h3>
-        <p><img src="assets/diagrams/platformsh-cluster.svg" alt="The same setup applies across all containers in a cluster" /></p>
+        <p><img src="assets/diagrams/platformsh-cluster.svg" class="diagram" alt="The same setup applies across all containers in a cluster" /></p>
         <aside class="notes">
           <ul>
             <li>Services have no app image, but do have FS or ramdisk</li>
@@ -739,7 +743,8 @@ $ ps axf
         </ul>
       </section>
       <section>
-        <p><img src="assets/diagrams/docker-filesystem.svg" alt="Docker's file system is layered" /></p>
+        <h2>Docker layered filesystem</h2>
+        <p><img src="assets/diagrams/docker-filesystem.svg" class="diagram" alt="Docker's file system is layered" /></p>
         <aside class="notes">
           <ul>
             <li>Layered like transparencies</li>
