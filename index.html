@@ -1,138 +1,39 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
   <title>The Container is a Lie!</title>
-  <meta name="author" content="Larry Garfield">
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="css/reveal.css">
-  <link rel="stylesheet" href="platform-reveal/platform-theme/assets/css/styles.css" id="theme">
+
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/reveal.css" />
+  <!--	<link rel="stylesheet" href="css/theme/black.css">-->
+
+  <link rel="stylesheet" href="platform/platformsh.css" />
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css">
+
   <!-- Printing and PDF exports -->
   <script>
-    var link = document.createElement( 'link' );
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? 'platform-theme/assets/css/print/pdf.css' : 'platform-theme/assets/css/print/paper.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
   </script>
 
-  <script src="platform-reveal/classer.js"></script>
-
-  <!--[if lt IE 9]>
-  <script src="lib/js/html5shiv.js"></script>
-  <![endif]-->
-
-  <style type="text/css">
-
-    img.graphic {
-    }
-
-    ul.inline {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      text-align: center;
-    }
-
-    ul.inline li {
-      display: inline;
-    }
-
-    /*overwrites a default style that
-    vertically un-centered slides */
-    .reveal .slides>section,
-    .reveal .slides>section>section {
-      padding: 0;
-    }
-
-    .reveal h2 + p.bigtext,
-    .reveal p + p,
-    .reveal h3 + p,
-    .reveal h3 + h3,
-    .reveal ul + ul {
-      margin-top: 1em;
-    }
-
-    .reveal #final p + p {
-      margin-top: 0;
-    }
-
-    .struck {
-      text-decoration: line-through;
-    }
-
-    p.bigdeal {
-      font-size: 200%;
-      color: Red;
-      font-style: italic;
-      text-shadow: 3px 3px 10px #990000;
-      display: block;
-    }
-
-    img.screenshot {
-      border-radius: 5px;
-      width: 900px;
-    }
-
-    blockquote em {
-      color: Green;
-      font-weight: bold !important;
-    }
-
-    .layout-columns {
-      display: flex;
-      justify-content: space-around;
-    }
-
-    .layout-centerline {
-      align-items: center;
-    }
-
-    .layout-bottom-align {
-      align-items: end;
-    }
-
-    .reveal .topspace {
-      margin-top: 1em;
-    }
-
-    .reveal ul.logo-list {
-      display: flex;
-      list-style: none;
-      justify-content: space-around;
-      text-align: center;
-      align-items: center;
-    }
-
-    .reveal ul.logo-list > li > img {
-      width: 150px;
-    }
-
-    img.meme {
-      width: 600px;
-    }
-
-    img.diagram {
-      width: 80%;
-    }
-
-    p.fullscreen-credit {
-      margin-top: 90%;
-      font-size: small;
-    }
-
-  </style>
-
 </head>
-<!-- Change body class to "dark" if you prefer a dark theme, or "light" if you'd rather have a light theme-->
-<body class="light">
+<body class="skin-blue">
 <div class="reveal">
-  <div class="logo">
-    <p>Platform.sh</p>
-  </div>
-  <!-- Any section element inside of this container is displayed as a slide -->
+  <header>
+    Title Here (Optional)
+  </header>
+  <footer>
+    <img class="logo" src="platform/logos/platformsh-logo-black.svg" alt="Platform.sh" />
+    <span class="name">@Crell</span>
+  </footer>
   <div class="slides">
 
     <section>
@@ -788,38 +689,32 @@ $ ps axf
       <p>Stalk us at <a href="http://twitter.com/Platformsh">@PlatformSH</a></p>
       <p style="margin-top: 2em;"><small>Diagrams by Allison Simmons</small></p>
     </section>
-
   </div>
-
 </div>
 
-<script src="lib/js/head.min.js"></script>
+
 <script src="js/reveal.js"></script>
 
 <script>
-
-  // Full list of configuration options available at:
-  // https://github.com/hakimel/reveal.js#configuration
-  Reveal.initialize({
-    controls: true,
-    progress: true,
-    history: true,
-    center: true,
-
-    transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-    // Optional reveal.js plugins
-    dependencies: [
-      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-      { src: 'plugin/zoom-js/zoom.js', async: true },
-      { src: 'plugin/notes/notes.js', async: true }
-    ]
-  });
-
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        hash: true,
+        controlsTutorial: false,
+        dependencies: [
+            { src: 'plugin/markdown/marked.js' },
+            { src: 'plugin/markdown/markdown.js' },
+            { src: 'plugin/notes/notes.js', async: true },
+            { src: 'plugin/highlight/highlight.js', async: true }
+        ]
+    });
 </script>
+
+<!-- Custom Reveal extension scripts. -->
+<script src="platform/classer.js"></script>
+<script src="platform/countup.js"></script>
+<script src="platform/usecase.js"></script>
 
 </body>
 </html>
