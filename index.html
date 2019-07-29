@@ -27,9 +27,6 @@
 </head>
 <body class="skin-blue">
 <div class="reveal">
-  <header>
-    Title Here (Optional)
-  </header>
   <footer>
     <img class="logo" src="platform/logos/platformsh-logo-black.svg" alt="Platform.sh" />
     <span class="name">@Crell</span>
@@ -42,12 +39,11 @@
         <small>Presented by <a href="http://www.garfieldtech.com/">Larry Garfield</a> (<a href="http://twitter.com/Crell">@Crell</a>)</small>
       </p>
     </section>
-    <section class="l-2up">
-      <h2><a href="http://twitter.com/Crell">@Crell</a></h2>
-      <div>
+    <section id="presenter">
+      <h2>Larry Garfield</h2>
+      <h2><a href="https://twitter.com/Crell">@Crell</a></h2>
+      <div class="layout-col vcentered">
         <img src="assets/larry-olaf-hug.jpg" alt="Larry implements Huggable" style="width: 350px; margin: 0" />
-      </div>
-      <div>
         <ul style="text-wrap: none">
           <li>Director of DX, <a href="http://www.platform.sh/">Platform.sh</a></li>
           <li style="margin-top: 1em;">PHP-FIG Core Committee</li>
@@ -129,13 +125,15 @@
         </aside>
       </section>
       <section>
-        <h2>Operating System</h2>
-        <ul class="layout-columns layout-centerline logo-list">
-          <li><img src="assets/os-logo/tux.svg" data-credit="https://commons.wikimedia.org/wiki/File:Tux.svg" alt="Linux" /></li>
-          <li><img src="assets/os-logo/windows-pre-xp.jpg" data-credit="https://commons.wikimedia.org/wiki/File:Microsoft_Windows_logo_(Pre-XP).jpg" alt="Windows" /></li>
-          <li><img src="assets/os-logo/os-x-logo.svg" data-credit="https://commons.wikimedia.org/wiki/File:OS_X-Logo.svg" alt="OS X" /></li>
-        </ul>
-        <blockquote class="fragment">"Software that manages software"</blockquote>
+        <div class="layout-stacked" style="height: 675px">
+          <h2>Operating System</h2>
+          <ul class="layout-col equal-width vcentered fixed-height">
+            <li><img src="assets/os-logo/tux.svg" data-credit="https://commons.wikimedia.org/wiki/File:Tux.svg" alt="Linux" /></li>
+            <li><img src="assets/os-logo/windows-pre-xp.jpg" data-credit="https://commons.wikimedia.org/wiki/File:Microsoft_Windows_logo_(Pre-XP).jpg" alt="Windows" /></li>
+            <li><img src="assets/os-logo/os-x-logo.svg" data-credit="https://commons.wikimedia.org/wiki/File:OS_X-Logo.svg" alt="OS X" /></li>
+          </ul>
+          <blockquote class="fragment">"Software that manages software"</blockquote>
+        </div>
       </section>
       <section>
         <h2>"Scheduler"</h2>
@@ -154,9 +152,9 @@
       </section>
       <section>
         <h2>Operating system</h2>
-        <p class="bigtext">Multiple cores?</p>
-        <p class="fragment bigtext">Multiple threads?</p>
-        <p class="fragment bigtext">Multiple Program Counters!</p>
+        <p class="oversize">Multiple cores?</p>
+        <p class="fragment oversize">Multiple threads?</p>
+        <p class="fragment oversize">Multiple Program Counters!</p>
         <aside class="notes">
           <ul>
             <li>How to keep track of PCs and memory?</li>
@@ -217,7 +215,7 @@
       </section>
       <section>
         <h2>Namespaces</h2>
-        <div class="layout-columns">
+        <div class="layout-col">
           <div>
             <img src="assets/os-logo/tux.svg" data-credit="https://commons.wikimedia.org/wiki/File:Tux.svg" alt="Linux specific stuff follows" />
           </div>
@@ -294,7 +292,7 @@
     <section>
       <section>
         <h2>Network namespace</h2>
-        <div class="layout-columns">
+        <div class="layout-col">
           <div>
             <h3 class="fragment">Physical devices</h3>
             <ul>
@@ -334,8 +332,8 @@
     <section>
       <section>
         <h2>User namespace</h2>
-        <p class="fragment bigtext">Processes have user and group</p>
-        <p class="fragment bigtext">Affects access control</p>
+        <p class="fragment oversize">Processes have user and group</p>
+        <p class="fragment oversize">Affects access control</p>
         <aside class="notes">
           <ul>
             <li>Limit process communication</li>
@@ -354,7 +352,7 @@
       </section>
       <section>
         <h2>User namespace</h2>
-        <p><img src="assets/diagrams/user-namespace.svg" class="diagram" alt="The user namespace lets processes be a different user within a given scope." /></p>
+        <p><img src="assets/diagrams/user-namespace.svg" class="diagram" style="max-height: 600px" alt="The user namespace lets processes be a different user within a given scope." /></p>
         <aside class="notes">
           <ul>
             <li>Lots of potential for weirdness</li>
@@ -368,7 +366,7 @@
       <section>
         <h2>Control Groups</h2>
         <blockquote class="fragment">The CGroup is not a lie!</blockquote>
-        <p class="fragment bigtext">Scheduler tweaking</p>
+        <p class="fragment oversize">Scheduler tweaking</p>
         <aside class="notes">
           <ul>
             <li>Scheduler tries to be fair</li>
@@ -408,7 +406,7 @@
     <section>
       <section>
         <p>Can you use multiple namespaces?</p>
-        <p class="fragment bigtext">Yes!</p>
+        <p class="fragment oversize">Yes!</p>
         <aside class="notes">
           <ul>
             <li>Mix and match, even overlap</li>
@@ -437,7 +435,7 @@
       </section>
       <section>
         <p><img src="assets/philosoraptor-isolated-processes.jpg" class="meme" alt="If processes are that isolated, is that any different than having their own computer?" /></p>
-        <p class="fragment bigtext">Let's call it a "Container"</p>
+        <p class="fragment oversize">Let's call it a "Container"</p>
         <aside class="notes">
           <ul>
             <li>Can tell in a cgroup, but can't change anything</li>
@@ -459,7 +457,7 @@
     <section>
       <section>
         <h2>Coarser APIs</h2>
-        <ul class="fragment layout-columns layout-bottom-align logo-list">
+        <ul class="fragment layout-col vcentered  equal-width">
           <li>
             <a href="https://linuxcontainers.org/"><figure>
               <img src="assets/lxc-logo.png" alt="" />
@@ -530,21 +528,21 @@
         </aside>
       </section>
       <section>
-        <p class="bigtext">Static compiler for your entire system</p>
+        <p class="oversize">Static compiler for your entire system</p>
       </section>
     </section>
     <section>
       <section>
         <h2>A tale of two containers</h2>
-        <ul class="fragment layout-columns layout-centerline logo-list">
-          <li><img src="platform-reveal/platform-theme/assets/imgs/platform-logo-2c.svg" style="width: 300px" alt="Platform.sh" /></li>
+        <ul class="fragment layout-col equal-width vcentered">
+          <li><img src="platform/logos/platformsh-logo-black.svg" style="width: 300px" alt="Platform.sh" /></li>
           <li><img src="assets/docker-logo-vertical.png" style="width: 300px" alt="Docker" /></li>
         </ul>
       </section>
     </section>
     <section>
       <section>
-        <p><img src="platform-reveal/platform-theme/assets/imgs/platform-logo-2c.svg" style="width: 300px" alt="Platform.sh" /></p>
+        <p><img src="platform/logos/platformsh-logo-black.svg" style="width: 300px" alt="Platform.sh" /></p>
         <ul>
           <li class="fragment">Built on LXC</li>
           <li class="fragment">Nested Squashfs</li>
@@ -552,8 +550,8 @@
         </ul>
       </section>
       <section>
-        <p><img src="platform-reveal/platform-theme/assets/imgs/platform-logo-2c.svg" style="width: 300px" alt="Platform.sh" /></p>
-        <div class="layout-centerline layout-columns">
+        <p><img src="platform/logos/platformsh-logo-black.svg" style="width: 300px" alt="Platform.sh" /></p>
+        <div class="layout-col vcentered">
           <div><img src="assets/git-logo.svg" alt="Git" /></div>
           <div class="fragment">+</div>
           <div><code class="fragment">#!/bin/bash</code></div>
@@ -567,8 +565,8 @@
         </aside>
       </section>
       <section>
-        <p><img src="platform-reveal/platform-theme/assets/imgs/platform-logo-2c.svg" style="width: 300px" alt="Platform.sh" /></p>
-        <div class="layout-columns">
+        <p><img src="platform/logos/platformsh-logo-black.svg" style="width: 300px" alt="Platform.sh" /></p>
+        <div class="layout-col">
           <div>
             <img src="assets/diagrams/platformsh-filesystem.svg" alt="A Platform.sh production file system is built from pieces" />
           </div>
@@ -649,7 +647,7 @@ $ ps axf
         </aside>
       </section>
       <section>
-        <p class="bigtext">Different uses, different trade-offs</p>
+        <p class="oversize">Different uses, different trade-offs</p>
         <aside class="notes">
           <ul>
             <li>Ubuntu Snaps</li>

@@ -188,8 +188,8 @@ p.bigdeal {
 
 .reveal p.fullscreen-credit {
   /* Used to show credit URL for a background image. */
-  /*position: absolute;*/
-  /*margin-top: 90%;*/
+  position: absolute;
+  margin-top: 90%;
   font-size: small;
   width: available;
   background-color: var(--color-highlight);
@@ -316,19 +316,30 @@ aside {
 
 /* Layouts. These must all apply to div, not section elements. */
 
-div.layout-col {
+.reveal .layout-col {
   /* By default this will be top-aligned. */
   display: flex;
   justify-content: space-around;
   flex-wrap: nowrap;
+  /* Makes this rule work nicely on ULs. */
+  list-style: none;
+  text-align: center;
 }
 
-div.layout-col.equal-width > * {
+.reveal .layout-col.equal-width > * {
   flex: 1;
 }
 
-div.layout-col.vcentered {
+.reveal .layout-col.vcentered {
   align-items: center;
+}
+
+.reveal .layout-col.fixed-height > *,
+.reveal .layout-col.fixed-height  img {
+  /* This is a default, intended to be overwritten by a style attribute. */
+  /* Set the style attribute on the .fixed-height element; it will apply to the children. */
+  --height: 200px;
+  height: var(--height);
 }
 
 .reveal .layout-stacked {
@@ -422,6 +433,7 @@ div.layout-2up-1down {
 img {
   /* Make sure no images go larger than the screen, if nothing else. */
   max-width: 100%;
+  max-height: 100%;
 }
 
 img.screenshot {
@@ -432,7 +444,8 @@ img.screenshot {
 }
 
 img.meme {
-  width: 90%;
+  width: 600px;
+  height: auto;
   /* These values based on the default Reveal.js slide size of 960x700. */
   max-width: 960px;
   max-height: 650px;
